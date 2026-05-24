@@ -1,4 +1,8 @@
+#pragma once
+
 #include "SASSettings.h"
+#include "CoreMinimal.h"
+#include "Modules/ModuleManager.h"
 
 USASSettings::USASSettings()
 {
@@ -28,3 +32,17 @@ USASSettings::USASSettings()
 	bDrawDetectionTrace = false;
 	bVerboseLogging = false;
 }
+
+// SAS runtime module
+class FSASModule final : public IModuleInterface {
+public:
+	// IMODULE INTERFACE
+	virtual void StartupModule()
+		override;
+
+	virtual void ShutdownModule()
+		override;
+private:
+	// Registers gameplay tags
+	void InitializeGameplayTags();
+};
