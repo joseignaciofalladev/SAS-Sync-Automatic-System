@@ -4,6 +4,8 @@
 #include "Engine/DeveloperSettings.h"
 #include "Engine/EngineTypes.h"
 #include "SASSettings.generated.h"
+#include "SASSettings.h"
+#include "Engine/CollisionProfile.h"
 
 /**
  * Global project settings for SAS (Sync Automatic System).
@@ -17,6 +19,48 @@ class SAS_API USASSettings : public UDeveloperSettings
 {
 	GENERATED_BODY()
 public:
+USASSettings::USASSettings(
+	const FObjectInitializer& ObjectInitializer)
+	: Super(ObjectInitializer)
+{
+	/////////////////////////////////////
+	// INTERACTION
+	/////////////////////////////////////
+	MaxInteractionDistance = 300.f;
+	DetectionInterval = 0.05f;
+	DetectionRadius = 24.f;
+	InteractionTraceChannel = ECC_Visibility;
+		
+	/////////////////////////////////////
+	// DEBUG
+	/////////////////////////////////////
+	bEnableDebug = false;
+	bDrawDetectionTrace = false;
+}
+
+const USASSettings*
+USASSettings::Get(){
+	return GetDefault<USASSettings>();
+}
+
+#if WITH_EDITOR
+
+FName
+USASSettings::GetCategoryName() const{
+	return TEXT("Plugins");
+}
+
+FText
+USASSettings::GetSectionText() const{
+	return NSLOCTEXT(
+		"SAS",
+		"SASSettingsSection",
+		"Sync Automatic System"
+	);
+}
+
+#endif
+
 	USASSettings();
 
 	/////////////////////////////////////
@@ -219,7 +263,6 @@ public:
 	bool bVerboseLogging;
 
 public:
-
 	// Returns mutable SAS settings object
 	UFUNCTION(BlueprintPure, Category="SAS")
 	static const USASSettings* Get()
