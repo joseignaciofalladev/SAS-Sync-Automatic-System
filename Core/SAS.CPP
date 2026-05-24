@@ -4,6 +4,11 @@
 #include "Engine/DeveloperSettings.h"
 #include "Engine/EngineTypes.h"
 #include "SASSettings.generated.h"
+#include "SAS.h"
+#include "SASGameplayTags.h"
+#include "SASLog.h"
+
+#define LOCTEXT_NAMESPACE "FSASModule"
 
 /**
  * Global SAS configuration.
@@ -25,6 +30,30 @@ class SAS_API USASSettings final : public UDeveloperSettings
 {
 	GENERATED_BODY()
 public:
+
+void FSASModule::StartupModule()
+{
+	SAS_LOG(TEXT("Starting SAS Module..."));
+	InitializeGameplayTags();
+	SAS_LOG(TEXT("SAS Module started successfully."));
+}
+
+void FSASModule::ShutdownModule(){
+	SAS_LOG(TEXT("Shutting down SAS Module..."));
+	SAS_LOG(TEXT("SAS Module shutdown complete."));
+}
+
+void FSASModule::InitializeGameplayTags(){
+	FSASGameplayTags:: InitializeNativeTags();
+}
+
+IMPLEMENT_MODULE(
+	FSASModule,
+	SAS
+)
+
+#undef LOCTEXT_NAMESPACE
+
 	USASSettings();
 
 	/////////////////////////////////////
