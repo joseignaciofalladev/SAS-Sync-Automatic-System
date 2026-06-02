@@ -21,7 +21,6 @@ void USASInteractionWidget::NativeDestruct(){
 /////////////////////////////////////
 // TARGET
 /////////////////////////////////////
-
 void USASInteractionWidget::SetTargetActor(
 	AActor* NewTargetActor){
 	if (TargetActor.Get() == NewTargetActor){
@@ -43,7 +42,6 @@ void USASInteractionWidget::ClearTargetActor(){
 /////////////////////////////////////
 // VISIBILITY
 /////////////////////////////////////
-
 void USASInteractionWidget::ShowWidget(){
 	if (bVisible){return;}
 	bVisible = true;
