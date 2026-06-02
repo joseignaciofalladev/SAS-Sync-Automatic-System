@@ -20,7 +20,6 @@ public class SAS : ModuleRules
         /////////////////////////////////////
         // PUBLIC DEPENDENCIES
         /////////////////////////////////////
-
         PublicDependencyModuleNames.AddRange(
             new string[]
             {
@@ -36,7 +35,6 @@ public class SAS : ModuleRules
         /////////////////////////////////////
         // PRIVATE DEPENDENCIES
         /////////////////////////////////////
-
         PrivateDependencyModuleNames.AddRange(
             new string[]
             {}
@@ -45,14 +43,12 @@ public class SAS : ModuleRules
         /////////////////////////////////////
         // UE4.26 COMPATIBILITY
         /////////////////////////////////////
-
         bUseUnity = true;
         bEnableExceptions = false;
 
         /////////////////////////////////////
         // EDITOR SUPPORT
         /////////////////////////////////////
-
         if (Target.bBuildEditor){
             PrivateDependencyModuleNames.AddRange(
                 new string[]
