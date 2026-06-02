@@ -14,7 +14,6 @@
     "IsBetaVersion": false,
     "Installed": false,
     "EnabledByDefault": true,
-
     "Modules":
     [
         {
@@ -23,7 +22,6 @@
             "LoadingPhase": "Default"
         }
     ],
-
     "Plugins":
     [
         {
