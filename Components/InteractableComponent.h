@@ -10,7 +10,6 @@
 /////////////////////////////////////
 // DELEGATES
 /////////////////////////////////////
-
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(
 	FSASInteractableActorSignature,
 	AActor*,
@@ -43,9 +42,7 @@ class SAS_API UInteractableComponent final
 	  public IInteractableInterface
 {
 	GENERATED_BODY()
-
 public:
-
 	UInteractableComponent();
 
 protected:
@@ -53,58 +50,27 @@ protected:
 	/////////////////////////////////////
 	// UACTOR COMPONENT
 	/////////////////////////////////////
-
 	virtual void BeginPlay() override;
 
 	/////////////////////////////////////
 	// INTERACTABLE INTERFACE
 	/////////////////////////////////////
-
 public:
+	virtual bool CanInteract_Implementation(AActor* Interactor) const override;
+	virtual float GetInteractionPriority_Implementation()const override;
+	virtual FGameplayTagContainer GetInteractionTags_Implementation()const override;
+	virtual float GetInteractionScore_Implementation(const FSASInteractionContext& Context) const override;
+	virtual void OnFocusStart_Implementation(AActor* Interactor) override;
+	virtual void OnFocusEnd_Implementation(AActor* Interactor) override;
+	virtual void OnInteractionStarted_Implementation(AActor* Interactor) override;
+	virtual void OnInteractionCompleted_Implementation(AActor* Interactor) override;
+	virtual void OnInteractionCancelled_Implementation(AActor* Interactor) override;
 
-	virtual bool CanInteract_Implementation(
-		AActor* Interactor
-	) const override;
-
-	virtual float GetInteractionPriority_Implementation()
-		const override;
-
-	virtual FGameplayTagContainer
-	GetInteractionTags_Implementation()
-		const override;
-
-	virtual float GetInteractionScore_Implementation(
-		const FSASInteractionContext& Context
-	) const override;
-
-	virtual void OnFocusStart_Implementation(
-		AActor* Interactor
-	) override;
-
-	virtual void OnFocusEnd_Implementation(
-		AActor* Interactor
-	) override;
-
-	virtual void OnInteractionStarted_Implementation(
-		AActor* Interactor
-	) override;
-
-	virtual void OnInteractionCompleted_Implementation(
-		AActor* Interactor
-	) override;
-
-	virtual void OnInteractionCancelled_Implementation(
-		AActor* Interactor
-	) override;
-
-	virtual ESASInteractionState
-	GetInteractionState_Implementation()
-		const override;
+	virtual ESASInteractionState GetInteractionState_Implementation() const override;
 
 	/////////////////////////////////////
 	// CONFIGURATION
 	/////////////////////////////////////
-
 public:
 
     // Whether this object can be interacted with
