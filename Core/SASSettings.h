@@ -38,26 +38,12 @@ USASSettings::USASSettings(
 	bDrawDetectionTrace = false;
 }
 
-const USASSettings*
-USASSettings::Get(){
-	return GetDefault<USASSettings>();
-}
+const USASSettings* USASSettings::Get(){return GetDefault<USASSettings>();}
 
 #if WITH_EDITOR
 
-FName
-USASSettings::GetCategoryName() const{
-	return TEXT("Plugins");
-}
-
-FText
-USASSettings::GetSectionText() const{
-	return NSLOCTEXT(
-		"SAS",
-		"SASSettingsSection",
-		"Sync Automatic System"
-	);
-}
+FName USASSettings::GetCategoryName() const{return TEXT("Plugins");}
+FText USASSettings::GetSectionText() const{return NSLOCTEXT("SAS","SASSettingsSection","Sync Automatic System");}
 
 #endif
 
@@ -66,7 +52,6 @@ USASSettings::GetSectionText() const{
 	/////////////////////////////////////
 	// DEVELOPER SETTINGS OVERRIDES
 	/////////////////////////////////////
-
 	virtual FName GetCategoryName() const override
 	{return TEXT("Plugins");}
 
@@ -74,20 +59,12 @@ USASSettings::GetSectionText() const{
 
 	virtual FText GetSectionText() const override
 	{
-		return NSLOCTEXT(
-			"SAS",
-			"SASSettingsSection",
-			"Sync Automatic System"
-		);
+		return NSLOCTEXT("SAS","SASSettingsSection","Sync Automatic System");
 	}
 
 	virtual FText GetSectionDescription() const override
 	{
-		return NSLOCTEXT(
-			"SAS",
-			"SASSettingsDescription",
-			"Global configuration for SAS interaction framework."
-		);
+		return NSLOCTEXT("SAS","SASSettingsDescription","Global configuration for SAS interaction framework.");
 	}
 
 #endif
@@ -97,33 +74,14 @@ USASSettings::GetSectionText() const{
 	/////////////////////////////////////
 
 	// Maximum interaction trace distance
-	UPROPERTY(
-		Config,
-		EditAnywhere,
-		BlueprintReadOnly,
-		Category="Detection",
-		meta=(ClampMin="50.0", ClampMax="10000.0")
-	)
-	float MaxInteractionDistance;
+	UPROPERTY(Config,EditAnywhere,BlueprintReadOnly,Category="Detection",meta=(ClampMin="50.0", ClampMax="10000.0")) float MaxInteractionDistance;
 
 	// Frequency of interaction detection checks
-	UPROPERTY(
-		Config,
-		EditAnywhere,
-		BlueprintReadOnly,
-		Category="Detection",
-		meta=(ClampMin="0.01", ClampMax="1.0")
-	)
+	UPROPERTY(Config,EditAnywhere,BlueprintReadOnly,Category="Detection",meta=(ClampMin="0.01", ClampMax="1.0"))
 	float DetectionInterval;
 
 	// Collision channel used for interaction traces 
-	UPROPERTY(
-		Config,
-		EditAnywhere,
-		BlueprintReadOnly,
-		Category="Detection"
-	)
-	TEnumAsByte<ECollisionChannel> InteractionTraceChannel;
+	UPROPERTY(Config,EditAnywhere,BlueprintReadOnly,Category="Detection") TEnumAsByte<ECollisionChannel> InteractionTraceChannel;
 
 	// Allow sphere sweep fallback if line trace fails
 	UPROPERTY(
