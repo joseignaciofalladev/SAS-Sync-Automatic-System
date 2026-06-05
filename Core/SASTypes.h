@@ -53,7 +53,6 @@ enum class ESASInteractionAuthority : uint8
 /////////////////////////////////////
 // STRUCTS
 /////////////////////////////////////
-
 /**
  * Context information generated when evaluating interactions.
  * This structure is passed through the framework to score and
@@ -74,19 +73,14 @@ public:
 
 	// Actor requesting interaction
 	UPROPERTY(BlueprintReadOnly, Category="SAS|Interaction") AActor* Instigator;
-
 	// Actor being interacted with
 	UPROPERTY(BlueprintReadOnly, Category="SAS|Interaction") AActor* Target;
-
 	// Gameplay tags used for contextual filtering
 	UPROPERTY(BlueprintReadOnly, Category="SAS|Interaction") FGameplayTagContainer ContextTags;
-
 	// Distance between interactor and target
 	UPROPERTY(BlueprintReadOnly, Category="SAS|Interaction") float Distance;
-
 	// Final calculated interaction score
 	UPROPERTY(BlueprintReadOnly, Category="SAS|Interaction") float Score;
-
 	// Whether target is visible from the interactor
 	UPROPERTY(BlueprintReadOnly, Category="SAS|Interaction") bool bIsVisible;
 };
@@ -102,13 +96,11 @@ public:
 		, Target(nullptr)
 		, InputType(ESASInteractionInputType::Press)
 	{}
-
 	UPROPERTY(BlueprintReadWrite, Category="SAS|Interaction") AActor* Interactor;
 	UPROPERTY(BlueprintReadWrite, Category="SAS|Interaction") AActor* Target;
 	UPROPERTY(BlueprintReadWrite, Category="SAS|Interaction") ESASInteractionInputType InputType;
 	UPROPERTY(BlueprintReadWrite, Category="SAS|Interaction") FGameplayTagContainer RequestTags;
 };
-
 
 // Interaction result returned by the system
 USTRUCT(BlueprintType)
