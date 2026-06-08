@@ -72,44 +72,18 @@ public:
 	// CONFIGURATION
 	/////////////////////////////////////
 public:
-
     // Whether this object can be interacted with
-	UPROPERTY(
-		EditAnywhere,
-		BlueprintReadOnly,
-		Category="SAS|Interaction"
-	)
-	bool bEnabled;
+	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="SAS|Interaction") bool bEnabled;
 
 	// Interaction priority
 	// Higher value = preferred target
-	UPROPERTY(
-		EditAnywhere,
-		BlueprintReadOnly,
-		Category="SAS|Interaction",
-		meta=(
-			ClampMin="0.0",
-			UIMin="0.0",
-			UIMax="100.0"
-		)
-	)
-	float InteractionPriority;
+	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="SAS|Interaction",meta=(ClampMin="0.0",UIMin="0.0",UIMax="100.0")) float InteractionPriority;
 
     // Interaction mode
-	UPROPERTY(
-		EditAnywhere,
-		BlueprintReadOnly,
-		Category="SAS|Interaction"
-	)
-	ESASInteractionMode InteractionMode;
+	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="SAS|Interaction")ESASInteractionMode InteractionMode;
 
 	// Interaction input type
-	UPROPERTY(
-		EditAnywhere,
-		BlueprintReadOnly,
-		Category="SAS|Interaction"
-	)
-	ESASInteractionInputType InputType;
+	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category="SAS|Interaction")ESASInteractionInputType InputType;
 
 	// Timed interaction duration
 	UPROPERTY(
