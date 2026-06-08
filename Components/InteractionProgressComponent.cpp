@@ -56,9 +56,7 @@ TickComponent(
 	/////////////////////////////////////
 	// FOCUS VALIDATION
 	/////////////////////////////////////
-
-	if (bCancelOnFocusLost && InteractionComponent){
-		AActor* FocusedActor = InteractionComponent->GetFocusedActor();
+	if (bCancelOnFocusLost && InteractionComponent){AActor* FocusedActor = InteractionComponent->GetFocusedActor();
 
 		if (FocusedActor !=TargetActor.Get()){
 			CancelProgress();
@@ -84,16 +82,12 @@ TickComponent(
 	/////////////////////////////////////
 	// COMPLETE
 	/////////////////////////////////////
-
-	if (CurrentTime >= Duration){
-		CompleteProgress();
-	}
+	if (CurrentTime >= Duration){CompleteProgress();}
 }
 
 /////////////////////////////////////
 // INITIALIZATION
 /////////////////////////////////////
-
 void
 UInteractionProgressComponent::
 InitializeInteractionComponent(){
@@ -107,7 +101,6 @@ InitializeInteractionComponent(){
 /////////////////////////////////////
 // PROGRESS
 /////////////////////////////////////
-
 bool
 UInteractionProgressComponent::
 StartProgress(
@@ -144,9 +137,7 @@ CancelProgress(){
 	TargetActor = nullptr;
 
 	SetComponentTickEnabled(false);
-
 	OnProgressCancelled.Broadcast(PreviousTarget);
-
 	SAS_LOG(TEXT("Interaction progress cancelled."));
 }
 
@@ -168,7 +159,6 @@ CompleteProgress(){
 	/////////////////////////////////////
 	// AUTO INTERACTION
 	/////////////////////////////////////
-
 	if (bAutoCompleteInteraction && InteractionComponent){
 		InteractionComponent ->Interact();
 	}
