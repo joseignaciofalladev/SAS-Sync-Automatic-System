@@ -7,15 +7,8 @@ public class SAS : ModuleRules
         PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
         CppStandard = CppStandardVersion.Cpp17;
 
-        PublicIncludePaths.AddRange(
-            new string[]
-            {"SAS/Public"}
-        );
-
-        PrivateIncludePaths.AddRange(
-            new string[]
-            {"SAS/Private"}
-        );
+        PublicIncludePaths.AddRange(new string[]{"SAS/Public"});
+        PrivateIncludePaths.AddRange(new string[]{"SAS/Private"});
 
         /////////////////////////////////////
         // PUBLIC DEPENDENCIES
@@ -35,10 +28,7 @@ public class SAS : ModuleRules
         /////////////////////////////////////
         // PRIVATE DEPENDENCIES
         /////////////////////////////////////
-        PrivateDependencyModuleNames.AddRange(
-            new string[]
-            {}
-        );
+        PrivateDependencyModuleNames.AddRange(new string[]{});
 
         /////////////////////////////////////
         // UE4.26 COMPATIBILITY
@@ -50,10 +40,7 @@ public class SAS : ModuleRules
         // EDITOR SUPPORT
         /////////////////////////////////////
         if (Target.bBuildEditor){
-            PrivateDependencyModuleNames.AddRange(
-                new string[]
-                {"UnrealEd"}
-            );
+            PrivateDependencyModuleNames.AddRange(new string[]{"UnrealEd"});
         }
     }
 }
