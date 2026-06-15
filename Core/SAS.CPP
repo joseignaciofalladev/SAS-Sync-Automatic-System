@@ -53,18 +53,14 @@ IMPLEMENT_MODULE(
 )
 
 #undef LOCTEXT_NAMESPACE
-
 	USASSettings();
 
 	/////////////////////////////////////
 	// DEVELOPER SETTINGS
 	/////////////////////////////////////
-
 	virtual FName GetCategoryName() const override
 	{return TEXT("Plugins");}
-
 #if WITH_EDITOR
-
 	virtual FText GetSectionText() const override
 	{
 		return NSLOCTEXT(
@@ -82,13 +78,10 @@ IMPLEMENT_MODULE(
 			"Global settings for the SAS interaction framework."
 		);
 	}
-
 #endif
-
 	/////////////////////////////////////
 	// DETECTION
 	/////////////////////////////////////
-
 	// Maximum interaction detection distance
 	UPROPERTY(
 		Config,
@@ -152,7 +145,6 @@ IMPLEMENT_MODULE(
 	/////////////////////////////////////
 	// FOCUS
 	/////////////////////////////////////
-
 	// Automatically focus best interaction candidate
 	UPROPERTY(
 		Config,
@@ -193,7 +185,6 @@ IMPLEMENT_MODULE(
 	/////////////////////////////////////
 	// INTERACTION
 	/////////////////////////////////////
-
 	// Allow multiple active interactions
 	UPROPERTY(
 		Config,
@@ -229,7 +220,6 @@ IMPLEMENT_MODULE(
 	/////////////////////////////////////
 	// NETWORKING
 	/////////////////////////////////////
-
 	// Enables client prediction
 	UPROPERTY(
 		Config,
@@ -251,7 +241,6 @@ IMPLEMENT_MODULE(
 	/////////////////////////////////////
 	// DEBUG
 	/////////////////////////////////////
-
 	// Enables debug drawing
 	UPROPERTY(
 		Config,
@@ -278,7 +267,6 @@ IMPLEMENT_MODULE(
 		Category="Debug"
 	)
 	bool bVerboseLogging;
-
 public:
 	UFUNCTION(BlueprintPure, Category="SAS")
 	static FORCEINLINE const USASSettings* Get()
