@@ -20,20 +20,15 @@ class SAS_API USASSettings : public UDeveloperSettings
 	GENERATED_BODY()
 public:
 USASSettings::USASSettings(
-	const FObjectInitializer& ObjectInitializer)
-	: Super(ObjectInitializer)
+	const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 {
-	/////////////////////////////////////
 	// INTERACTION
-	/////////////////////////////////////
 	MaxInteractionDistance = 300.f;
 	DetectionInterval = 0.05f;
 	DetectionRadius = 24.f;
 	InteractionTraceChannel = ECC_Visibility;
 		
-	/////////////////////////////////////
 	// DEBUG
-	/////////////////////////////////////
 	bEnableDebug = false;
 	bDrawDetectionTrace = false;
 }
@@ -44,17 +39,13 @@ const USASSettings* USASSettings::Get(){return GetDefault<USASSettings>();}
 
 FName USASSettings::GetCategoryName() const{return TEXT("Plugins");}
 FText USASSettings::GetSectionText() const{return NSLOCTEXT("SAS","SASSettingsSection","Sync Automatic System");}
-
 #endif
 
 	USASSettings();
 
-	/////////////////////////////////////
 	// DEVELOPER SETTINGS OVERRIDES
-	/////////////////////////////////////
 	virtual FName GetCategoryName() const override
 	{return TEXT("Plugins");}
-
 #if WITH_EDITOR
 
 	virtual FText GetSectionText() const override
@@ -66,7 +57,6 @@ FText USASSettings::GetSectionText() const{return NSLOCTEXT("SAS","SASSettingsSe
 	{
 		return NSLOCTEXT("SAS","SASSettingsDescription","Global configuration for SAS interaction framework.");
 	}
-
 #endif
 
 	/////////////////////////////////////
