@@ -5,10 +5,7 @@
 #include "Engine/EngineTypes.h"
 #include "SASTypes.generated.h"
 
-/////////////////////////////////////
 // ENUMS
-/////////////////////////////////////
-
 // Defines how an interaction is triggered
 UENUM(BlueprintType)
 enum class ESASInteractionInputType : uint8
@@ -50,9 +47,7 @@ enum class ESASInteractionAuthority : uint8
 	LocalOnly		UMETA(DisplayName = "Local Only")
 };
 
-/////////////////////////////////////
 // STRUCTS
-/////////////////////////////////////
 /**
  * Context information generated when evaluating interactions.
  * This structure is passed through the framework to score and
@@ -141,9 +136,7 @@ public:
 	UPROPERTY(BlueprintReadOnly, Category="SAS|Scoring") float FinalScore;
 };
 
-/////////////////////////////////////
 // DELEGATES
-/////////////////////////////////////
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(
 	FSASInteractionStateChangedSignature,
 	ESASInteractionState,
