@@ -59,16 +59,12 @@ FText USASSettings::GetSectionText() const{return NSLOCTEXT("SAS","SASSettingsSe
 	}
 #endif
 
-	/////////////////////////////////////
 	// DETECTION
-	/////////////////////////////////////
-
 	// Maximum interaction trace distance
 	UPROPERTY(Config,EditAnywhere,BlueprintReadOnly,Category="Detection",meta=(ClampMin="50.0", ClampMax="10000.0")) float MaxInteractionDistance;
 
 	// Frequency of interaction detection checks
-	UPROPERTY(Config,EditAnywhere,BlueprintReadOnly,Category="Detection",meta=(ClampMin="0.01", ClampMax="1.0"))
-	float DetectionInterval;
+	UPROPERTY(Config,EditAnywhere,BlueprintReadOnly,Category="Detection",meta=(ClampMin="0.01", ClampMax="1.0")) float DetectionInterval;
 
 	// Collision channel used for interaction traces 
 	UPROPERTY(Config,EditAnywhere,BlueprintReadOnly,Category="Detection") TEnumAsByte<ECollisionChannel> InteractionTraceChannel;
@@ -92,10 +88,7 @@ FText USASSettings::GetSectionText() const{return NSLOCTEXT("SAS","SASSettingsSe
 	)
 	float DetectionRadius;
 
-	/////////////////////////////////////
 	// FOCUS
-	/////////////////////////////////////
-
 	// Enable automatic interaction focus
 	UPROPERTY(
 		Config,
@@ -125,10 +118,7 @@ FText USASSettings::GetSectionText() const{return NSLOCTEXT("SAS","SASSettingsSe
 	)
 	float MinimumFocusScore;
 
-	/////////////////////////////////////
 	// INTERACTION
-	/////////////////////////////////////
-
 	// Allow multiple simultaneous interactions
 	UPROPERTY(
 		Config,
@@ -157,10 +147,7 @@ FText USASSettings::GetSectionText() const{return NSLOCTEXT("SAS","SASSettingsSe
 	)
 	float InteractionTimeout;
 
-	/////////////////////////////////////
 	// NETWORKING
-	/////////////////////////////////////
-
 	// Enable client-side prediction
 	UPROPERTY(
 		Config,
